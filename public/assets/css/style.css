@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+
+
+html {
+    background: #403e56;
+}
+
+h1,h2,h3,
+h4,h5,h6 {
+    color: #ffffff !important;
+}
+
+.uk-card {
+    background: transparent !important;
+    border-width: 1px;
+    border-color: #05c896;
+}
+
+.uk-card * {
+    color: #fff;
+}
+
+.uk-text-lead {
+    color: #ccc8c8 !important;
+}
+
+.uk-input, .uk-select, .uk-textarea {
+    background: transparent;
+}
+
+.uk-input:focus, .uk-select:focus, .uk-textarea:focus {
+    background: transparent;
+    border-color: #05c896;
+}
+
+.uk-form-label {
+    color: #fff ;
+}
+
+* {
+    font-family: "Alexandria", sans-serif !important;
+}
+

@@ -12,8 +12,9 @@
                 <h1 class="uk-article-title uk-text-center">{{ __('Categories') }}</h1>
                 <a href="{{route('categories.create')}}" class="uk-button uk-button-primary">Create</a>
 
-                <div class="article-content link-primary ">
-                    <table class="uk-table uk-table-responsive uk-table-striped uk-table-middle uk-text-center">
+                <div class="article-content link-primary">
+                    <div class="uk-overflow-auto">
+                        <table class="uk-table uk-table-responsive uk-table-middle uk-text-center">
 
                         <thead>
                         <tr>
@@ -44,7 +45,7 @@
                                 <td><img src="{{asset('storage/' . $category->image)}}" alt="{{$category->slug . '-image'}}" width="60"></td>
                                 <td>{{$category->is_published ? "Yes" : "No"}}</td>
                                 <td>
-                                    <a class="uk-button uk-button-success uk-text-warning" href="{{route('categories.edit',$category)}}">Edit</a>
+                                    <a class="uk-button uk-button-secondary" href="{{route('categories.edit',$category)}}">Edit</a>
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){
                                             event.preventDefault();
@@ -68,6 +69,7 @@
                         </tr>
                         </tfoot>
                     </table>
+                    </div>
                 </div>
             </article>
 

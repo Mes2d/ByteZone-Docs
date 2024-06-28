@@ -114,7 +114,7 @@
                             </div>
 
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
-                            <label class="uk-form-label " for="description_ar">{{ __('Content Arabic') }}</label>
+                            <label class="uk-form-label " for="content_ar">{{ __('Content Arabic') }}</label>
                             <div class="uk-form-controls">
                                 <textarea name="content_ar" class="uk-textarea  uk-border-rounded" id="content_ar" >{{old('content_ar')}}</textarea>
                             </div>
@@ -133,9 +133,15 @@
                             <div class="uk-form-controls">
                                 <select class="uk-select  uk-border-rounded" name="group_id" id="group_id">
                                     <option value="" selected disabled>Choose Group</option>
-                                    @foreach($groups as $key => $group)
-                                        <option value="{{$group->id}}">{{$key + 1 . ' - ' .$group->title}}</option>
+                                    @foreach($spaces as $space)
+                                            <optgroup label="{{$space->name}}">
+                                                @foreach($space->groups as $key => $group)
+                                                    <option value="{{$group->id}}">{{$key + 1 . ' - ' .$group->title}}</option>
+                                                @endforeach
+                                            </optgroup>
                                     @endforeach
+
+
                                 </select>
                             </div>
 
@@ -189,6 +195,53 @@
         </div>
 
     </div>
+
+
+<script src="{{asset('assets/js/ckeditor/ckeditor.js')}}"></script>]\
+
+
+    <script>
+
+        const watchdog = new CKSource.EditorWatchdog();
+
+        window.watchdog = watchdog;
+
+        watchdog.setCreator( ( element, config ) => {
+            return CKSource.Editor
+                .create( element, config )
+                .then( editor => {
+                    return editor;
+                } );
+        } );
+
+        watchdog.setDestructor( editor => {
+            return editor.destroy();
+        } );
+
+        watchdog.on( 'error', handleSampleError );
+
+        watchdog
+            .create( document.querySelector( '#content' ), {
+                codeBlock: {
+                    class: 'highlight'
+                }
+            } )
+            .catch( handleSampleError );
+
+        function handleSampleError( error ) {
+            const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
+
+            const message = [
+                'Oops, something went wrong!',
+                `Please, report the following error on ${ issueUrl } with the build id "vq9ukgrxrkx0-xuoysp1ucpzn" and the error stack trace:`
+            ].join( '\n' );
+
+            console.error( message );
+            console.error( error );
+        }
+
+
+    </script>
 
 @endsection
 

@@ -1,5 +1,10 @@
 @extends('layouts.header')
 @section('title','Contact')
+
+@php
+    $locale = \Illuminate\Support\Facades\App::getLocale();
+@endphp
+
 @section('content')
 
     <div class="uk-section">

@@ -1,11 +1,13 @@
 @php
 
+
 $categories = \App\Models\Category::where('is_published', 1)->get();
+$locale = \Illuminate\Support\Facades\App::getLocale();
 
 @endphp
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="{{$locale}}" dir="{{$locale == "ar" ? "rtl" : "ltr"}}">
 
 <head>
     <meta name="msapplication-navbutton-color" content="#000000">
@@ -33,7 +35,8 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }} | @yield('title')</title>
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
+    <link rel="stylesheet" href="{{asset( $locale == 'ar' ? 'assets/css/main.rtl.css' : 'assets/css/main.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <script src="{{asset('assets/js/uikit.js')}}"></script>
     @livewireStyles
 </head>
@@ -46,21 +49,21 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
             <div class="uk-container">
                 <div data-uk-navbar>
                     <div class="uk-navbar-left">
-                        <a class="uk-navbar-item uk-logo uk-visible@m" href="{{url("/")}}">
+                        <a class="uk-navbar-item uk-logo uk-visible@m" href="{{url("/" . $locale)}}">
                             <img src="{{asset('assets/imgs/logo.png')}}" alt="logo" width="80" />
                         </a>
                         <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-docs" data-uk-toggle><span
                                 data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Docs</span></a>
                         <ul class="uk-navbar-nav uk-visible@m">
-                            <li class="uk-active"><a href="{{url("/")}}">Home</a></li>
+                            <li class="uk-active"><a href="{{url("/" . $locale)}}">{{__("HOME")}}</a></li>
 
                             <li>
-                                <a href="#">Categories</a>
+                                <a href="#">{{__("CATEGORIES")}}</a>
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         @foreach($categories as $category)
                                             <li>
-                                                <a href="{{url('/categories/' . $category->slug)}}">{{$category->name}} ({{$category->spaces->count()}})</a>
+                                                <a href="{{url($locale . '/categories/' . $category->slug())}}">{{$category->name()}} ({{$category->spaces->count()}})</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -68,8 +71,9 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
                             </li>
 
 
+                            @auth
                             <li>
-                                <a href="#">Admin</a>
+                                <a href="#">{{__("ADMIN")}}</a>
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li><a href="{{route('categories.index')}}">Categories</a></li>
@@ -79,14 +83,20 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
                                     </ul>
                                 </div>
                             </li>
+                            @endauth
 
 
+                            @if($locale == 'ar')
+                                <li><a href="{{url("/en")}}">English</a></li>
+                            @else
+                                <li><a href="{{url("/ar")}}">عربي</a></li>
+                            @endif
 
 
                         </ul>
                     </div>
                     <div class="uk-navbar-center uk-hidden@m">
-                        <a class="uk-navbar-item uk-logo" href="index.html"><img src="{{asset('assets/imgs/logo.png')}}" alt="logo" width="80" /></a>
+                        <a class="uk-navbar-item uk-logo" href="{{url('/' . $locale)}}"><img src="{{asset('assets/imgs/logo.png')}}" alt="logo" width="80" /></a>
                     </div>
                     <div class="uk-navbar-right">
                         <div>
@@ -103,7 +113,7 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
                             @guest
                             <li>
                                 <div class="uk-navbar-item">
-                                    <a class="uk-button uk-button-primary-outline" href="{{url('/login')}}">Login</a>
+                                    <a class="uk-button uk-button-default" href="{{url($locale. '/login')}}">{{__("LOGIN")}}</a>
                                 </div>
                             </li>
                             @endguest
@@ -125,7 +135,7 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
 
                             <li>
                                 <div class="uk-navbar-item">
-                                    <a class="uk-button uk-button-success" href="{{url('/contact')}}">Contact</a>
+                                    <a class="uk-button uk-button-success" href="{{url($locale . '/contact')}}">{{__("CONTACT")}}</a>
                                 </div>
                             </li>
                         </ul>
@@ -145,6 +155,7 @@ $categories = \App\Models\Category::where('is_published', 1)->get();
 
 @include('layouts.offcanvas')
 @include('layouts.footer')
+
 
 </body>
 </html>

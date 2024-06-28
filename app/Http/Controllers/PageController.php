@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Page;
+use App\Models\Space;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,8 +24,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        $groups = Group::where('is_published', 1)->get();
-        return view('admin.pages.create', compact('groups'));
+        $spaces = Space::where('is_published', 1)->get();
+        return view('admin.pages.create', compact('spaces'));
     }
 
     /**
