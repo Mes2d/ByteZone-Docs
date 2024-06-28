@@ -24,7 +24,7 @@ return new class extends Migration
             $table->longText('content_ar');
             $table->unsignedBigInteger('group_id');
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
-            $table->longText('is_published')->default(0);
+            $table->longText('is_published')->nullable()->default(0);
             $table->unique(['slug','group_id']);
             $table->unique(['slug_ar','group_id']);
             $table->timestamps();
