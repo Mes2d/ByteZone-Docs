@@ -6,7 +6,6 @@
 
         <div class="uk-container uk-container-xsmall">
 
-
             <article class="uk-article">
                 <h1 class="uk-article-title uk-text-center">{{ __('Add Space') }}</h1>
                 <div class="article-content link-primary">
@@ -42,21 +41,43 @@
 
                             </div>
 
-                            <div class="uk-margin-medium-bottom uk-width-1-1@s">
-                                <label class="uk-form-label " for="description">{{ __('Description') }}</label>
-                                <div class="uk-form-controls">
-                                    <textarea name="description" class="uk-textarea  uk-border-rounded" id="description" >{{old('description')}}</textarea>
-                                </div>
-
-                                @error('description')
-                                <span class="uk-text-danger" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                @enderror
-
+                        <div class="uk-margin-medium-bottom uk-width-1-2@s">
+                            <label class="uk-form-label " for="status_id">{{ __("Status") }}</label>
+                            <div class="uk-form-controls">
+                                <select name="status_id" id="status_id" class="uk-select">
+                                    <option value="" disabled>Select Status</option>
+                                    @foreach($statuses as $status)
+                                        <option value="{{$status->id}}" style="color: {{$status->color}}">{{$status->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
-                            <div class="uk-margin-medium-bottom uk-width-1-2@s">
+                            @error('status_id')
+                            <span class="uk-text-danger" role="alert">
+                                  <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
+                        </div>
+
+
+
+                        <div class="uk-margin-medium-bottom uk-width-1-2@s">
+                            <label class="uk-form-label " for="detected_at">{{ __('Detection Date') }}</label>
+                            <div class="uk-form-controls">
+                                <input id="detected_at" class="uk-input  uk-border-rounded" name="detected_at" type="datetime-local" value="{{ old('detected_at') }}">
+                            </div>
+
+                            @error('detected_at')
+                            <span class="uk-text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                            @enderror
+
+                        </div>
+
+
+                        <div class="uk-margin-medium-bottom uk-width-1-2@s">
                                 <label class="uk-form-label " for="name_ar">{{ __('Name Arabic') }}</label>
                                 <div class="uk-form-controls">
                                     <input id="name_ar" class="uk-input  uk-border-rounded" name="name_ar" type="text" value="{{ old('name_ar') }}" required="">
@@ -77,21 +98,6 @@
                                 </div>
 
                                 @error('slug_ar')
-                                <span class="uk-text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-
-                            </div>
-
-
-                            <div class="uk-margin-medium-bottom uk-width-1-1@s">
-                                <label class="uk-form-label " for="description_ar">{{ __('Description Arabic') }}</label>
-                                <div class="uk-form-controls">
-                                    <textarea name="description_ar" class="uk-textarea  uk-border-rounded" id="description_ar" >{{old('description_ar')}}</textarea>
-                                </div>
-
-                                @error('description_ar')
                                 <span class="uk-text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                 </span>
@@ -156,11 +162,8 @@
                     </form>
                 </div>
             </article>
-
-
         </div>
 
     </div>
-
 @endsection
 

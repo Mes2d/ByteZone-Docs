@@ -19,11 +19,11 @@
                         <tr>
                             <th>Name</th>
                             <th>Slug</th>
-                            <th>Description</th>
                             <th>Name Ar</th>
                             <th>Slug Ar</th>
-                            <th>Description Ar</th>
                             <th>Category</th>
+                            <th>Status</th>
+                            <th>Detect Date</th>
                             <th>Image</th>
                             <th>Published</th>
                             <th>Actions</th>
@@ -36,11 +36,11 @@
                             <tr>
                                 <td>{{$space->name}}</td>
                                 <td>{{$space->slug}}</td>
-                                <td>{{$space->description}}</td>
                                 <td>{{$space->name_ar}}</td>
                                 <td>{{$space->slug_ar}}</td>
-                                <td>{{$space->description_ar}}</td>
                                 <td>{{$space->category->name}}</td>
+                                <td style="color: {{$space->status->color}}">{{$space->status->name}}</td>
+                                <td>{{$space->detected_at ?? "Never"}}</td>
                                 <td><img src="{{asset('storage/' . $space->image)}}" alt="{{$space->slug . '-image'}}" width="60"></td>
                                 <td>{{$space->is_published ? "Yes" : "No"}}</td>
                                 <td>

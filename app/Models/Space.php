@@ -11,7 +11,7 @@ class Space extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'name_ar', 'slug', 'slug_ar', 'description', 'description_ar', 'is_published',"image","category_id"
+        'name', 'name_ar', 'slug', 'slug_ar','status_id','detected_at', 'is_published',"image","category_id"
     ];
 
 
@@ -27,10 +27,10 @@ class Space extends Model
         return $this->slug;
     }
 
-    public function description()
+    public function status_name()
     {
-        if(App::getLocale() == 'ar') return $this->description_ar;
-        return $this->description;
+        if(App::getLocale() == 'ar') return $this->status->name_ar;
+        return $this->status->name;
     }
 
     public function category()
@@ -43,6 +43,9 @@ class Space extends Model
         return $this->hasMany(Group::class);
     }
 
-
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Space;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +16,6 @@ class SpaceController extends Controller
     public function index()
     {
         $spaces = Space::all();
-
         return view('admin.spaces.index', compact('spaces'));
     }
 
@@ -24,8 +24,9 @@ class SpaceController extends Controller
      */
     public function create()
     {
+        $statuses = Status::all();
         $categories = Category::where('is_published', 1)->get();
-        return view('admin.spaces.create',compact('categories'));
+        return view('admin.spaces.create',compact('categories','statuses'));
     }
 
     /**
@@ -38,12 +39,14 @@ class SpaceController extends Controller
             'name_ar' => 'required|string',
             'slug' => 'required|string|unique:spaces',
             'slug_ar' => 'required|string|unique:spaces',
-            'description' => 'nullable|string',
-            'description_ar' => 'nullable|string',
+            'detected_at' => 'nullable',
+            'status_id' => 'required|exists:statuses,id',
             'image' => 'nullable|image',
             'category_id' => 'required|exists:categories,id',
             'is_published' => 'nullable',
         ]);
+
+
 
         $spaceData = $request->except('image');
 
@@ -51,6 +54,8 @@ class SpaceController extends Controller
             $imagePath = $request->file('image')->store('spaces', 'public');
             $spaceData['image'] = $imagePath;
         }
+
+
 
         Space::create($spaceData);
 
@@ -71,8 +76,9 @@ class SpaceController extends Controller
      */
     public function edit(Space $space)
     {
+        $statuses = Status::all();
         $categories = Category::where('is_published', 1)->get();
-        return view('admin.spaces.edit', compact('space', 'categories'));
+        return view('admin.spaces.edit', compact('space', 'categories','statuses'));
     }
 
     /**
@@ -85,8 +91,8 @@ class SpaceController extends Controller
             'name_ar' => 'required|string',
             'slug' => 'required|string|unique:categories,slug,' . $space->id,
             'slug_ar' => 'required|string|unique:categories,slug_ar,' . $space->id,
-            'description' => 'nullable|string',
-            'description_ar' => 'nullable|string',
+            'detected_at' => 'nullable',
+            'status_id' => 'required|exists:statuses,id',
             'image' => 'nullable|image',
             'category_id' => 'required|exists:categories,id',
             'is_published' => 'nullable',

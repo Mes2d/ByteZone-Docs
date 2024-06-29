@@ -14,6 +14,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/groups',App\Http\Controllers\GroupController::class);
     Route::resource('/pages',App\Http\Controllers\PageController::class);
     Route::resource('/faqs',App\Http\Controllers\FaqController::class);
+    Route::resource('/statuses',App\Http\Controllers\StatusController::class);
     Route::post('pages/uploadImage',[\App\Http\Controllers\PageController::class,'uploadImage'])->name('pages.uploadImage');
 });
 

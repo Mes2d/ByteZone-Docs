@@ -86,6 +86,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
                                     <a href="#">{{__("ADMIN")}}</a>
                                     <div class="uk-navbar-dropdown">
                                         <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li><a href="{{route('statuses.index')}}">Statuses</a></li>
                                             <li><a href="{{route('categories.index')}}">Categories</a></li>
                                             <li><a href="{{route('spaces.index')}}">Spaces</a></li>
                                             <li><a href="{{route('groups.index')}}">Groups</a></li>

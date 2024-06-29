@@ -17,7 +17,8 @@
                         <a class="uk-position-cover" href="{{url($locale . '/spaces/' . $space->slug())}}"></a>
                         <div data-src="{{asset('storage/' . $space->image)}}" uk-img style="border-radius:15px;height: 300px;background-size: cover;background-position: center;background-repeat: no-repeat">…</div>
                         <h3 class="uk-card-title uk-margin">{{$space->name()}}</h3>
-                        <p>{{$space->description()}}</p>
+                        <p style="color: {{$space->status->color}}">{{$space->status_name()}}</p>
+                        <p>Last detection : {{$space->detected_at ?? "Never"}}</p>
                     </div>
             </div>
             @endforeach
