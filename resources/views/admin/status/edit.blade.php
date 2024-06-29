@@ -59,6 +59,21 @@
                         </div>
 
 
+                        <div class="uk-margin-medium-bottom uk-width-1-2@s">
+                            <label class="uk-form-label " for="active">{{ __('Active') }}</label>
+                            <div class="uk-form-controls">
+                                <input id="active" class="uk-checkbox  uk-border-rounded" name="active" type="checkbox" @checked($status->active) value="1" >
+                            </div>
+
+                            @error('active')
+                            <span class="uk-text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
+                        </div>
+
+
 
                         <div class="uk-width-1-1">
                             <input class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit" value="{{ __('Update') }}">

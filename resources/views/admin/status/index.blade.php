@@ -19,6 +19,7 @@
                             <th>Name</th>
                             <th>Name Ar</th>
                             <th>Color</th>
+                            <th>Active</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -29,12 +30,10 @@
                                 <td>{{$status->name}}</td>
                                 <td>{{$status->name_ar}}</td>
                                 <td>
-                                    <div style="width: 40px;height: 40px;background-color: {{$status->color}}">
-
-                                    </div>
+                                    <div style="width: 40px;height: 40px;background-color: {{$status->color}}"></div>
                                 </td>
-
-                                <td>
+                                <td>{{$status->active ? "Yes" : "No"}}</td>
+                                 <td>
                                     <a class="uk-button uk-button-secondary" href="{{route('statuses.edit',$status)}}">Edit</a>
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){

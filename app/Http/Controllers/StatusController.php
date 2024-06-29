@@ -33,6 +33,7 @@ class StatusController extends Controller
             'name'=> 'required',
             'name_ar'=> 'required',
             'color'=> 'required',
+            'active'=> 'nullable',
         ]);
 
         if(Status::create($validatedData)){
@@ -68,6 +69,7 @@ class StatusController extends Controller
             'name'=> 'required',
             'name_ar'=> 'required',
             'color'=> 'required',
+            'active'=> 'nullable',
         ]);
 
         if($status->update($validatedData)){

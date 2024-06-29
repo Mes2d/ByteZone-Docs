@@ -15,7 +15,7 @@
             <div class="uk-first-column">
                     <div class="uk-card uk-card-default uk-box-shadow-medium uk-card-hover uk-card-body uk-inline border-radius-large border-xlight">
                         <a class="uk-position-cover" href="{{url($locale . '/spaces/' . $space->slug())}}" ></a>
-                        <div data-src="{{asset('storage/' . $space->image)}}" uk-img style="border-radius:15px;height: 300px;background-size: cover;background-position: center;background-repeat: no-repeat ;@if(!count($space->groups)) filter: grayscale(1) @endif">…</div>
+                        <div data-src="{{asset('storage/' . $space->image)}}" uk-img style="border-radius:15px;height: 300px;background-size: cover;background-position: center;background-repeat: no-repeat ;@if(!count($space->groups) || !$space->status->active) filter: grayscale(1) @endif">…</div>
                         <h3 class="uk-card-title uk-margin">{{$space->name()}} @if(!count($space->groups)) ({{__("SOON")}}) @endif</h3>
                         <p style="color: {{$space->status->color}}">{{$space->status_name()}}</p>
                         <p>Last detection : {{$space->detected_at ?? "Never"}}</p>
