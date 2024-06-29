@@ -1,9 +1,6 @@
 @php
-
-
 $categories = \App\Models\Category::where('is_published', 1)->get();
 $locale = \Illuminate\Support\Facades\App::getLocale();
-
 @endphp
 
 <!DOCTYPE html>
@@ -57,34 +54,47 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
                         <ul class="uk-navbar-nav uk-visible@m">
                             <li class="uk-active"><a href="{{url("/" . $locale)}}">{{__("HOME")}}</a></li>
 
-                            <li>
-                                <a href="#">{{__("CATEGORIES")}}</a>
-                                <div class="uk-navbar-dropdown">
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        @foreach($categories as $category)
-                                            <li>
-                                                <a href="{{url($locale . '/categories/' . $category->slug())}}">{{$category->name()}} ({{$category->spaces->count()}})</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </li>
+                            @if(count($categories))
+
+                                @foreach($categories as $category)
+
+                                   <li>
+                                       <a href="{{url("/" . $locale . '/categories/' . $category->name())}}">{{$category->name()}} ({{$category->spaces->count()}})</a>
+
+
+                                       @if(count($category->spaces))
+                                       <div class="uk-navbar-dropdown">
+                                           <ul class="uk-nav uk-navbar-dropdown-nav">
+                                               @foreach($category->spaces as $space)
+                                                   <li>
+                                                       <a href="{{url($locale . '/spaces/' . $space->slug())}}">{{$space->name()}} </a>
+                                                   </li>
+                                               @endforeach
+                                           </ul>
+                                       </div>
+                                       @endif
+                                   </li>
+
+                                @endforeach
+
+
+                            @endif
 
 
                             @auth
-                            <li>
-                                <a href="#">{{__("ADMIN")}}</a>
-                                <div class="uk-navbar-dropdown">
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li><a href="{{route('categories.index')}}">Categories</a></li>
-                                        <li><a href="{{route('spaces.index')}}">Spaces</a></li>
-                                        <li><a href="{{route('groups.index')}}">Groups</a></li>
-                                        <li><a href="{{route('pages.index')}}">Pages</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                                <li>
+                                    <a href="#">{{__("ADMIN")}}</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li><a href="{{route('categories.index')}}">Categories</a></li>
+                                            <li><a href="{{route('spaces.index')}}">Spaces</a></li>
+                                            <li><a href="{{route('groups.index')}}">Groups</a></li>
+                                            <li><a href="{{route('pages.index')}}">Pages</a></li>
+                                            <li><a href="{{route('faqs.index')}}">Faq</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
                             @endauth
-
 
                             @if($locale == 'ar')
                                 <li><a href="{{url("/en")}}">English</a></li>
@@ -113,7 +123,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
                             @guest
                             <li>
                                 <div class="uk-navbar-item">
-                                    <a class="uk-button uk-button-default" href="{{url($locale. '/login')}}">{{__("LOGIN")}}</a>
+                                    <a class="uk-button uk-button-primary-outline" href="{{url('/login')}}">{{__("LOGIN")}}</a>
                                 </div>
                             </li>
                             @endguest
@@ -121,7 +131,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
                             @auth
                             <li>
                                 <div class="uk-navbar-item">
-                                    <a class="uk-button uk-button-success" href="{{url('/logout')}}" onclick="event.preventDefault();
+                                    <a class="uk-button uk-button-primary-outline" href="{{url('/logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
                                 </div>
                             </li>

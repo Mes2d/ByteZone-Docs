@@ -1,43 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 
 
-html {
-    background: #403e56;
-}
+/*html {*/
+/*    background: #403e56;*/
+/*}*/
 
-h1,h2,h3,
-h4,h5,h6 {
-    color: #ffffff !important;
-}
+/*h1,h2,h3,*/
+/*h4,h5,h6 {*/
+/*    color: #ffffff !important;*/
+/*}*/
 
-.uk-card {
-    background: transparent !important;
-    border-width: 1px;
-    border-color: #05c896;
-}
+/*.uk-card {*/
+/*    background: transparent !important;*/
+/*    border-width: 1px;*/
+/*    border-color: #05c896;*/
+/*}*/
 
-.uk-card * {
-    color: #fff;
-}
+/*.uk-card * {*/
+/*    color: #fff;*/
+/*}*/
 
-.uk-text-lead {
-    color: #ccc8c8 !important;
-}
+/*.uk-text-lead {*/
+/*    color: #ccc8c8 !important;*/
+/*}*/
 
-.uk-input, .uk-select, .uk-textarea {
-    background: transparent;
-}
+/*.uk-input, .uk-select, .uk-textarea {*/
+/*    background: transparent;*/
+/*}*/
 
-.uk-input:focus, .uk-select:focus, .uk-textarea:focus {
-    background: transparent;
-    border-color: #05c896;
-}
+/*.uk-input:focus, .uk-select:focus, .uk-textarea:focus {*/
+/*    background: transparent;*/
+/*    border-color: #05c896;*/
+/*}*/
 
-.uk-form-label {
-    color: #fff ;
-}
+/*.uk-form-label {*/
+/*    color: #fff ;*/
+/*}*/
 
 * {
     font-family: "Alexandria", sans-serif !important;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: #f6f6f6;
+    box-shadow: 0 0 10px #ddd inset;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #403e56;
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #05c896;
+}

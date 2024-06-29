@@ -197,51 +197,60 @@
     </div>
 
 
-<script src="{{asset('assets/js/ckeditor/ckeditor.js')}}"></script>]\
+<script src="{{asset('ckeditor/build/ckeditor.js')}}"></script>
 
 
-    <script>
-
-        const watchdog = new CKSource.EditorWatchdog();
-
-        window.watchdog = watchdog;
-
-        watchdog.setCreator( ( element, config ) => {
-            return CKSource.Editor
-                .create( element, config )
-                .then( editor => {
-                    return editor;
-                } );
-        } );
-
-        watchdog.setDestructor( editor => {
-            return editor.destroy();
-        } );
-
-        watchdog.on( 'error', handleSampleError );
-
-        watchdog
+<script>
+            ClassicEditor
             .create( document.querySelector( '#content' ), {
-                codeBlock: {
-                    class: 'highlight'
-                }
+
+                licenseKey: '',
+                language: 'en',
+                ckfinder: {
+                uploadUrl: "{{route('pages.uploadImage') . '?_token=' . csrf_token()}}",
+
+            }
+
             } )
-            .catch( handleSampleError );
-
-        function handleSampleError( error ) {
-            const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
-
-            const message = [
-                'Oops, something went wrong!',
-                `Please, report the following error on ${ issueUrl } with the build id "vq9ukgrxrkx0-xuoysp1ucpzn" and the error stack trace:`
-            ].join( '\n' );
-
-            console.error( message );
-            console.error( error );
-        }
+            .then( editor => {
+                window.editor = editor;
 
 
+            } )
+            .catch( error => {
+                console.error( 'Oops, something went wrong!' );
+                console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+                console.warn( 'Build id: qiybqic1scos-2mtgwv7b85hg' );
+                console.error( error );
+            } );
     </script>
+
+    <script>ClassicEditor
+            .create( document.querySelector( '#content_ar' ), {
+
+                licenseKey: '',
+                language: 'ar',
+
+                ckfinder: {
+                    uploadUrl: "{{route('pages.uploadImage') . '?_token=' . csrf_token()}}"
+                }
+
+            } )
+            .then( editor => {
+                window.editor = editor;
+
+
+
+
+            } )
+            .catch( error => {
+                console.error( 'Oops, something went wrong!' );
+                console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+                console.warn( 'Build id: qiybqic1scos-2mtgwv7b85hg' );
+                console.error( error );
+            } );
+    </script>
+
 
 @endsection
 

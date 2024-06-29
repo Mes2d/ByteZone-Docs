@@ -19,10 +19,8 @@
                         <tr>
                             <th>Name</th>
                             <th>Slug</th>
-                            <th>Description</th>
                             <th>Name Ar</th>
                             <th>Slug Ar</th>
-                            <th>Description Ar</th>
                             <th>Group</th>
                             <th>Cover</th>
                             <th>Published</th>
@@ -34,12 +32,10 @@
 
                             @foreach($pages as $page)
                             <tr>
-                                <td>{{$page->name}}</td>
+                                <td>{{$page->title}}</td>
                                 <td>{{$page->slug}}</td>
-                                <td>{{$page->description}}</td>
-                                <td>{{$page->name_ar}}</td>
+                                <td>{{$page->title_ar}}</td>
                                 <td>{{$page->slug_ar}}</td>
-                                <td>{{$page->description_ar}}</td>
                                 <td class="uk-text-danger">{{$page->group->title}}</td>
                                 <td><img src="{{asset('storage/' . $page->cover)}}" alt="{{$page->slug . '-cover'}}" width="60"></td>
                                 <td>{{$page->is_published ? "Yes" : "No"}}</td>

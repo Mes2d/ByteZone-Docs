@@ -13,6 +13,7 @@
                     <form class="uk-form-stacked  uk-grid-small uk-margin-medium-top" uk-grid method="POST" enctype="multipart/form-data" action="{{ route('pages.update',$page) }}"
                           accept-charset="UTF-8">
                         @csrf
+                        @method('PUT')
 
                         <div class="uk-margin-medium-bottom uk-width-1-2@s">
                             <label class="uk-form-label" for="name">{{ __('Title') }}</label>
@@ -59,7 +60,7 @@
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
                             <label class="uk-form-label " for="content">{{ __('Content') }}</label>
                             <div class="uk-form-controls">
-                                <textarea name="content" class="uk-textarea  uk-border-rounded" id="content" >{{$page->content}}</textarea>
+                                <textarea name="content" class="uk-textarea  uk-border-rounded" id="content" >{!! $page->content !!}</textarea>
                             </div>
 
                             @error('content')
@@ -73,7 +74,7 @@
                         <div class="uk-margin-medium-bottom uk-width-1-2@s">
                             <label class="uk-form-label " for="title_ar">{{ __('Title Arabic') }}</label>
                             <div class="uk-form-controls">
-                                <input id="title_ar" class="uk-input  uk-border-rounded" name="title_ar" type="text" value="{{ $page->title_ar }}" required="">
+                                <input id="title_ar" class="uk-input  uk-border-rounded" name="title_ar" type="text" value="{{$page->title_ar}}" required="">
                             </div>
 
                             @error('name_ar')
@@ -114,9 +115,9 @@
                         </div>
 
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
-                            <label class="uk-form-label " for="description_ar">{{ __('Content Arabic') }}</label>
+                            <label class="uk-form-label " for="content_ar">{{ __('Content Arabic') }}</label>
                             <div class="uk-form-controls">
-                                <textarea name="content_ar" class="uk-textarea  uk-border-rounded" id="content_ar" >{{$page->content_ar}}</textarea>
+                                <textarea name="content_ar" class="uk-textarea  uk-border-rounded" id="content_ar" >{!! $page->content_ar !!}</textarea>
                             </div>
 
                             @error('content_ar')
@@ -133,9 +134,15 @@
                             <div class="uk-form-controls">
                                 <select class="uk-select  uk-border-rounded" name="group_id" id="group_id">
                                     <option value="" selected disabled>Choose Group</option>
-                                    @foreach($groups as $key => $group)
-                                        <option value="{{$group->id}}" @selected($group->id == $page->group->id)>{{$key + 1 . ' - ' .$group->title}}</option>
+                                    @foreach($spaces as $space)
+                                        <optgroup label="{{$space->name}}">
+                                            @foreach($space->groups as $key => $group)
+                                                <option @selected($group->id == $page->group_id) value="{{$group->id}}">{{$key + 1 . ' - ' .$group->title}}</option>
+                                            @endforeach
+                                        </optgroup>
                                     @endforeach
+
+
                                 </select>
                             </div>
 
@@ -147,7 +154,6 @@
 
                         </div>
 
-                        <img src="{{asset('storage/' . $page->cover)}}" alt="{{$page->slug . '-cover'}}" width="80">
 
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
                             <label class="uk-form-label " for="cover">{{ __('Cover') }}</label>
@@ -166,20 +172,20 @@
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
                             <label class="uk-form-label " for="is_published">{{ __('Published') }}</label>
                             <div class="uk-form-controls">
-                                <input id="is_published" class="uk-checkbox  uk-border-rounded" name="is_published" type="checkbox" @checked(old('is_published')) value="1" required="">
+                                <input id="is_published" class="uk-checkbox  uk-border-rounded" name="is_published" type="checkbox" @checked($page->is_published) value="1">
                             </div>
 
                             @error('is_published')
                             <span class="uk-text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                </span>
+                                    <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
 
                         </div>
 
 
                         <div class="uk-width-1-1">
-                            <input class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit" value="{{ __('Create') }}">
+                            <input class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit" value="{{ __('Edit') }}">
                         </div>
 
                     </form>
@@ -190,6 +196,62 @@
         </div>
 
     </div>
+
+
+    <script src="{{asset('ckeditor/build/ckeditor.js')}}"></script>
+
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#content' ), {
+
+                licenseKey: '',
+                language: 'en',
+                ckfinder: {
+                    uploadUrl: "{{route('pages.uploadImage') . '?_token=' . csrf_token()}}",
+
+                }
+
+            } )
+            .then( editor => {
+                window.editor = editor;
+
+
+            } )
+            .catch( error => {
+                console.error( 'Oops, something went wrong!' );
+                console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+                console.warn( 'Build id: qiybqic1scos-2mtgwv7b85hg' );
+                console.error( error );
+            } );
+    </script>
+
+    <script>ClassicEditor
+            .create( document.querySelector( '#content_ar' ), {
+
+                licenseKey: '',
+                language: 'ar',
+
+                ckfinder: {
+                    uploadUrl: "{{route('pages.uploadImage') . '?_token=' . csrf_token()}}"
+                }
+
+            } )
+            .then( editor => {
+                window.editor = editor;
+
+
+
+
+            } )
+            .catch( error => {
+                console.error( 'Oops, something went wrong!' );
+                console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+                console.warn( 'Build id: qiybqic1scos-2mtgwv7b85hg' );
+                console.error( error );
+            } );
+    </script>
+
 
 @endsection
 

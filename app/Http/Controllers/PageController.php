@@ -72,7 +72,8 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         $groups = Group::where('is_published', 1)->get();
-        return view('admin.pages.edit', compact('page', 'groups'));
+        $spaces = Space::where('is_published', 1)->get();
+        return view('admin.pages.edit', compact('page', 'groups','spaces'));
     }
 
     /**
@@ -83,8 +84,8 @@ class PageController extends Controller
         $request->validate([
             'title' => 'required|string',
             'title_ar' => 'required|string',
-            'slug' => 'required|string|unique:pages,slug,NULL,id,group_id,' . $request->get('group_id'),
-            'slug_ar' => 'required|string|unique:pages,slug_ar,NULL,id,group_id,' . $request->get('group_id'),
+            'slug' => 'required|string|unique:pages,slug,' . $page->id,
+            'slug_ar' => 'required|string|unique:pages,slug_ar,' . $page->id,
             'description' => 'nullable|string',
             'content' => 'required|string',
             'content_ar' => 'required|string',
@@ -104,8 +105,12 @@ class PageController extends Controller
             $pageData['cover'] = $imagePath;
         }
 
-        Page::update($pageData);
-        return redirect()->route('pages.index')->with('success', 'Page updated successfully');
+        if($page->update($pageData)) {
+            return redirect()->route('pages.index')->with('success', 'Page updated successfully');
+
+        }
+
+        abort(500);
     }
 
     /**
@@ -117,5 +122,17 @@ class PageController extends Controller
             Storage::delete('public/' . $page->cover);
         }
         return redirect()->route('pages.index')->with('success', 'Page deleted successfully');
+    }
+
+
+    public function uploadImage(Request $request) {
+
+        if($request -> hasFile('upload')) {
+            $image = $request->file('upload')->store('pages/images','public');
+            return response()->json(['filename' => $image , 'uploaded' => 1 , 'url' => asset('storage/' . $image)]);
+        }
+
+        return  "";
+
     }
 }

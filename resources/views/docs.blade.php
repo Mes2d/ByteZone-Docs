@@ -34,6 +34,8 @@
                             {!! $foundPage->content() !!}
                         </div>
 
+                        <h6>{{__("LATEST_CHANGES")}} : {{$foundPage->updated_at->diffForHumans()}}</h6>
+
                     </article>
                 </div>
             </div>
@@ -56,8 +58,9 @@
                 @endif
             @endforeach
 
+
+
         </div>
     </div>
-
 
 @endsection

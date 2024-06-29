@@ -103,7 +103,7 @@
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
                             <label class="uk-form-label " for="image">{{ __('Image') }}</label>
                             <div class="uk-form-controls">
-                                <input id="image" class="uk-input  uk-border-rounded" name="image" type="file" value="{{ old('image') }}" required="">
+                                <input id="image" class="uk-input  uk-border-rounded" name="image" type="file" value="{{ old('image') }}">
                             </div>
 
                             @error('image')
@@ -117,7 +117,7 @@
                         <div class="uk-margin-medium-bottom uk-width-1-1@s">
                             <label class="uk-form-label " for="is_published">{{ __('Published') }}</label>
                             <div class="uk-form-controls">
-                                <input id="is_published" class="uk-checkbox  uk-border-rounded" name="is_published" type="checkbox" @checked(old('is_published')) value="1" required="">
+                                <input id="is_published" class="uk-checkbox  uk-border-rounded" name="is_published" type="checkbox" @checked(old('is_published')) value="1" >
                             </div>
 
                             @error('is_published')
