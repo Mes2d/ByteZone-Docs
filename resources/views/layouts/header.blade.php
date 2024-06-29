@@ -59,7 +59,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
                                 @foreach($categories as $category)
 
                                    <li>
-                                       <a href="{{url("/" . $locale . '/categories/' . $category->name())}}">{{$category->name()}} ({{$category->spaces->count()}})</a>
+                                       <a href="{{url("/" . $locale . '/categories/' . $category->slug())}}">{{$category->name()}} ({{$category->spaces->count()}})</a>
 
 
                                        @if(count($category->spaces))
