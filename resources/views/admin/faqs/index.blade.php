@@ -34,11 +34,11 @@
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){
                                             event.preventDefault();
-                                            document.getElementById('delete-group').submit();
+                                            document.getElementById('delete-faq-{{$faq->id}}').submit();
                                         }
                                     ">Delete</a>
 
-                                    <form id="delete-group" action="{{ route('faqs.destroy',$faq) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
+                                    <form id="delete-faq-{{$faq->id}}" action="{{ route('faqs.destroy',$faq) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>

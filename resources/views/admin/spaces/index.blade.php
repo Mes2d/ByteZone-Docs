@@ -48,11 +48,11 @@
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){
                                             event.preventDefault();
-                                            document.getElementById('delete-space').submit();
+                                            document.getElementById('delete-space-{{$space->id}}').submit();
                                         }
                                     ">Delete</a>
 
-                                    <form id="delete-space" action="{{ route('spaces.destroy',$space) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
+                                    <form id="delete-space-{{$space->id}}" action="{{ route('spaces.destroy',$space) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>

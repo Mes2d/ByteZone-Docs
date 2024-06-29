@@ -49,11 +49,11 @@
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){
                                             event.preventDefault();
-                                            document.getElementById('delete-category').submit();
+                                            document.getElementById('delete-category-{{$category->id}}').submit();
                                         }
                                     ">Delete</a>
 
-                                    <form id="delete-category" action="{{ route('categories.destroy',$category) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
+                                    <form id="delete-category-{{$category->id}}" action="{{ route('categories.destroy',$category) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>

@@ -44,11 +44,11 @@
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){
                                             event.preventDefault();
-                                            document.getElementById('delete-page').submit();
+                                            document.getElementById('delete-page-{{$page->id}}').submit();
                                         }
                                     ">Delete</a>
 
-                                    <form id="delete-page" action="{{ route('pages.destroy',$page) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
+                                    <form id="delete-page-{{$page->id}}" action="{{ route('pages.destroy',$page) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>

@@ -38,11 +38,11 @@
                                     <a class="uk-button uk-button-danger uk-text-secondary" href="#" onclick="
                                         if(confirm('are you sure ?')){
                                             event.preventDefault();
-                                            document.getElementById('delete-status').submit();
+                                            document.getElementById('delete-status-{{$status->id}}').submit();
                                         }
                                     ">Delete</a>
 
-                                    <form id="delete-status" action="{{ route('statuses.destroy',$status) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
+                                    <form id="delete-status-{{$status->id}}" action="{{ route('statuses.destroy',$status) }}" onsubmit="return confirm('are you sure')" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
                                     </form>
