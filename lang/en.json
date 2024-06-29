@@ -33,5 +33,6 @@
     "EMAIL": "Email",
     "SUBJECT": "Subject",
     "MESSAGE": "Message",
-    "SEND": "Send"
+    "SEND": "Send",
+    "SOON": "Soon"
 }

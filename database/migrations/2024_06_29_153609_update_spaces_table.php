@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('spaces', function (Blueprint $table) {
             $table->dropColumn('description');
             $table->dropColumn('description_ar');
-            $table->unsignedBigInteger('status_id')->after('category_id');
+            $table->unsignedBigInteger('status_id')->nullable()->after('category_id');
             $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade')->onUpdate('cascade');
             $table->dateTime('detected_at')->nullable()->after('status_id');
         });
