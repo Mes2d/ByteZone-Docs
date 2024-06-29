@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/',function () {
+   return redirect()->to('/en');
+});
+
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/categories',App\Http\Controllers\CategoryController::class);
     Route::resource('/spaces',App\Http\Controllers\SpaceController::class);

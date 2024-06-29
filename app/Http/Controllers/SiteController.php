@@ -38,7 +38,9 @@ class SiteController extends Controller
         App::setLocale($lang);
 
         $foundSpace = Space::where('slug', $space)->orWhere('slug_ar',$space)->first();
-        $foundGroup = $foundSpace->groups()->first();
+
+
+        $foundGroup = $foundSpace->groups()->orderBy('created_at')->first();
 
         if(empty($foundGroup))  abort(404);
 
