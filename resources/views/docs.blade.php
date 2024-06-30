@@ -5,6 +5,14 @@
     $locale = \Illuminate\Support\Facades\App::getLocale();
 @endphp
 
+<style>
+
+    img{
+        width: 100% !important;
+    }
+
+</style>
+
 @section('content')
     <div class="uk-section">
         <div class="uk-container">
