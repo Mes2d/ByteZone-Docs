@@ -7,7 +7,7 @@
 
 <style>
 
-    img{
+    img:not(#logo) {
         width: 100% !important;
     }
 

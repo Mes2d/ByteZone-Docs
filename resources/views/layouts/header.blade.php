@@ -47,7 +47,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
                 <div data-uk-navbar>
                     <div class="uk-navbar-left">
                         <a class="uk-navbar-item uk-logo uk-visible@m" href="{{url("/" . $locale)}}">
-                            <img src="{{asset('assets/imgs/logo.png')}}" alt="logo" width="80" />
+                            <img src="{{asset('assets/imgs/logo.png')}}" id="logo" alt="logo" width="80" />
                         </a>
                         <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-docs" data-uk-toggle><span
                                 data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Docs</span></a>
