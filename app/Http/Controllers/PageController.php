@@ -127,6 +127,10 @@ class PageController extends Controller
 
     public function uploadImage(Request $request) {
 
+        $request->validate([
+            'upload' => 'image'
+        ]);
+
         if($request -> hasFile('upload')) {
             $image = $request->file('upload')->store('pages/images','public');
             return response()->json(['filename' => $image , 'uploaded' => 1 , 'url' => asset('storage/' . $image)]);
