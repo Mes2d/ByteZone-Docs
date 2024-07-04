@@ -31,7 +31,7 @@ h4,h5,h6 {
 
 }
 
-.uk-article {
+.uk-article * {
     color: #eaeaea !important;
 }
 
