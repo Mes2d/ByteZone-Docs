@@ -13,13 +13,12 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
     <link rel="apple-touch-icon-precomposed" href="https://cdn.salla.sa/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png">
     <meta name="description" content="Quick and concise cheat sheets to help you navigate and utilize ByteZone's Games and services efficiently. Clear steps and essential information.">
     <meta name="keywords" content="كل,ماتحتاجه,لأمنك,السيبراني,في,مكان,واحد">
-    <meta property="og:description" content="كل ماتحتاجه لأمنك السيبراني في مكان واحد">
-    <meta property="og:title" content="bzteamSoftwares">
+    <meta property="og:description" content="Quick and concise cheat sheets to help you navigate and utilize ByteZone's Games and services efficiently. Clear steps and essential information.">
+    <meta property="og:title" content="bzdocs">
     <meta property="og:type" content="store">
-    <meta property="og:locale" content="ar_AR">
+    <meta property="og:locale" content="en_US">
     <meta property=":locale:alternate" content="ar_AR">
-    <meta property=":locale:alternate" content="en_US">
-    <meta property="og:url" content="https://bzteam.org">
+    <meta property="og:url" content="https://docs.bzteam.org">
     <meta property="og:image" content="https://cdn.salla.sa/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="300">
