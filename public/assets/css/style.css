@@ -1,20 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 
 
-/*html {*/
-/*    background: #403e56;*/
-/*}*/
+body {
+    background-image: url(../imgs/bg.png);
+}
 
-/*h1,h2,h3,*/
-/*h4,h5,h6 {*/
-/*    color: #ffffff !important;*/
-/*}*/
+.uk-navbar-nav > li > a {
+    color: #fff;
+}
 
-/*.uk-card {*/
-/*    background: transparent !important;*/
-/*    border-width: 1px;*/
-/*    border-color: #05c896;*/
-/*}*/
+.uk-navbar-container:not(.uk-navbar-transparent) .uk-navbar-nav > li > a {
+    color: #403e56;
+}
+
+.uk-button-success {
+    background-color: #EAEAEA;
+    color: #403e56;
+}
+
+h1,h2,h3,
+h4,h5,h6 {
+   color: #fff !important;
+}
+
+.uk-card:not(.team) {
+   background: #21e6c13d !important;
+   border-width: 1px;
+   color: #fff;
+   box-shadow: 5px 5px 15px #21e6c13d;
+
+}
 
 /*.uk-card * {*/
 /*    color: #fff;*/
@@ -46,12 +61,12 @@
 }
 ::-webkit-scrollbar-track {
     background-color: #f6f6f6;
-    box-shadow: 0 0 10px #ddd inset;
+    box-shadow: 0 0 10px #403e56 inset;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #403e56;
+    background-color: #05c896;
     border-radius: 20px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #05c896;
+    background-color: #403e56;
 }

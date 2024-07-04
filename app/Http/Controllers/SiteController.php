@@ -12,12 +12,51 @@ class SiteController extends Controller
 
     public function home($lang)
     {
+
+        $teams = [
+            [
+                "name" => 'Oussama',
+                "name_ar" => "أسامة",
+                "post" => 'Developer',
+                "post_ar" => "مطور",
+                "image" => asset('assets/imgs/oussama.jpg')
+            ],
+            [
+                "name" => 'FastX',
+                "name_ar" => "فاست",
+                "post" => 'Developer',
+                "post_ar" => "مطور",
+                "image" => asset('assets/imgs/fast.png')
+            ],
+            [
+                "name" => 'Musaed',
+                "name_ar" => "مساعد",
+                "post" => 'Developer',
+                "post_ar" => "مطور",
+                "image" => asset('assets/imgs/musaed.jpg')
+            ],
+            [
+                "name" => 'Fury',
+                "name_ar" => "فيوري",
+                "post" => 'Developer',
+                "post_ar" => "مطور",
+                "image" => asset('assets/imgs/fury.jpg')
+            ],
+            [
+                "name" => 'Abdulaziz',
+                "name_ar" => "عبد العزيز",
+                "post" => 'Developer',
+                "post_ar" => "مطور",
+                "image" => asset('assets/imgs/abdulaziz.gif')
+            ]
+            ];
+
         App::setLocale($lang);
 
         $pages = Page::where('is_published',1)->orderBy('updated_at', 'desc')->take(5)->get();
         $faqs = Faq::where('published',1)->get();
 
-        return view('welcome',compact('pages','faqs'));
+        return view('welcome',compact('pages','faqs','teams'));
     }
 
     public function category($lang,$slug)

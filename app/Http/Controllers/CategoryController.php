@@ -40,7 +40,7 @@ class CategoryController extends Controller
             'slug_ar' => 'required|string|unique:categories',
             'description' => 'nullable|string',
             'description_ar' => 'nullable|string',
-            'image' => 'nullable|image',
+            'image' => 'nullable|image', // png,gif,jpeg,
             'is_published' => 'nullable',
         ]);
 

@@ -102,41 +102,21 @@
     @endif
 
 
-
-
     <div class="uk-section section-team">
         <div class="uk-container uk-container-expand">
             <h2 class="uk-h1 uk-text-center">{{__("WE_ARE_HERE")}}</h2>
             <p class="uk-text-lead uk-text-center">{{__("WE_ARE_HERE_DESCRIPTION")}}</p>
             <div class="uk-margin-medium-top uk-grid-small uk-flex-center uk-text-center uk-margin-medium-top" data-uk-grid>
-                <div>
-                    <div class="uk-card">
-                        <img class="uk-border-circle" src="https://via.placeholder.com/172" alt="Musaed" />
-                        <h5 class="uk-margin-remove-bottom uk-margin-top">Musaed</h5>
-                        <p class="uk-article-meta uk-margin-remove-bottom uk-margin-small-top">Team Leader</p>
+
+                @foreach($teams as $team)
+                    <div>
+                        <div class="uk-card team">
+                            <img class="uk-border-circle" src="{{$team['image']}}" width="172" height="172" alt="{{$team['name']}}" />
+                            <h5 class="uk-margin-remove-bottom uk-margin-top">{{$locale == 'ar' ? $team['name_ar'] : $team['name']}}</h5>
+                            <p class="uk-article-meta uk-margin-remove-bottom uk-margin-small-top">{{$locale == 'ar' ? $team['post_ar'] : $team['post']}}</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div class="uk-card">
-                        <img class="uk-border-circle" src="https://via.placeholder.com/172" alt="Saud" />
-                        <h5 class="uk-margin-remove-bottom uk-margin-top">Saud</h5>
-                        <p class="uk-article-meta uk-margin-remove-bottom uk-margin-small-top">Developer</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card">
-                        <img class="uk-border-circle" src="https://via.placeholder.com/172" alt="Oussama" />
-                        <h5 class="uk-margin-remove-bottom uk-margin-top">Oussama</h5>
-                        <p class="uk-article-meta uk-margin-remove-bottom uk-margin-small-top">Developer</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card">
-                        <img class="uk-border-circle" src="https://via.placeholder.com/172" alt="Abdulaziz" />
-                        <h5 class="uk-margin-remove-bottom uk-margin-top">Abdulaziz</h5>
-                        <p class="uk-article-meta uk-margin-remove-bottom uk-margin-small-top">Design Engineer</p>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
