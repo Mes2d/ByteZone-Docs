@@ -35,6 +35,18 @@ h4,h5,h6 {
     color: #eaeaea !important;
 }
 
+.uk-icon-link {
+    color: #ffff !important;
+}
+
+a, .uk-link {
+    color: #fff !important;
+}
+
+.uk-icon-link:hover {
+    color: #05c896 !important;
+}
+
 /*.uk-card * {*/
 /*    color: #fff;*/
 /*}*/
