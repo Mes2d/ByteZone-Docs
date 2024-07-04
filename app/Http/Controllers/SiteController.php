@@ -22,8 +22,8 @@ class SiteController extends Controller
                 "image" => asset('assets/imgs/oussama.jpg')
             ],
             [
-                "name" => 'FastX',
-                "name_ar" => "فاست",
+                "name" => 'Mohamed',
+                "name_ar" => "محمد",
                 "post" => 'Developer',
                 "post_ar" => "مطور",
                 "image" => asset('assets/imgs/fast.png')
@@ -36,8 +36,8 @@ class SiteController extends Controller
                 "image" => asset('assets/imgs/musaed.jpg')
             ],
             [
-                "name" => 'Fury',
-                "name_ar" => "فيوري",
+                "name" => 'Saud',
+                "name_ar" => "سعود",
                 "post" => 'Developer',
                 "post_ar" => "مطور",
                 "image" => asset('assets/imgs/fury.jpg')
