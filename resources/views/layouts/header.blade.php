@@ -11,7 +11,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
     <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
     <link rel="icon" type="image/png" href="https://cdn.salla.sa/XnOOb/xiuNNHkYrLowShSJgeKZUmUSXmvHweShS3CIegsM.png" />
     <link rel="apple-touch-icon-precomposed" href="https://cdn.salla.sa/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png">
-    <meta name="description" content="كل ماتحتاجه لأمنك السيبراني في مكان واحد">
+    <meta name="description" content="Quick and concise cheat sheets to help you navigate and utilize ByteZone's Games and services efficiently. Clear steps and essential information.">
     <meta name="keywords" content="كل,ماتحتاجه,لأمنك,السيبراني,في,مكان,واحد">
     <meta property="og:description" content="كل ماتحتاجه لأمنك السيبراني في مكان واحد">
     <meta property="og:title" content="bzteamSoftwares">
@@ -23,7 +23,7 @@ $locale = \Illuminate\Support\Facades\App::getLocale();
     <meta property="og:image" content="https://cdn.salla.sa/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="300">
-    <meta name="twitter:description" content="كل ماتحتاجه لأمنك السيبراني في مكان واحد">
+    <meta name="twitter:description" content="Quick and concise cheat sheets to help you navigate and utilize ByteZone's Games and services efficiently. Clear steps and essential information.">
     <meta name="twitter:image" content="https://cdn.salla.sa/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="bzdocs">
