@@ -1,4 +1,4 @@
-<p align="center"><a href="https://bzteam.org/" target="_blank"><img src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png" width="400" alt="BzTeam Logo"></a></p>
+<p><a href="https://bzteam.org/" target="_blank"><img src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/XnOOb/rAcMxFkeccHT6ZlIOFpU1iy9h5mYrCUgDjGJfilH.png" width="400" alt="BzTeam Logo"></a></p>
 
 
 
@@ -17,9 +17,34 @@ The Site Support Arabic And English
 4. Contact
 5. Login Page For Admins
 6. Admin
-   1. Categories
-   2. Spaces
-   3. Groups
-   4. Pages
-   5. FAQ
-   6. Messages (Soon)
+   * Categories
+   * Spaces
+   * Groups
+   * Pages
+   * FAQ
+   * Messages (Soon)
+
+
+## Available Categories 
+1. Twilight
+2. Twilight Freeware
+3. Reselling
+
+## Available Spaces
+
+1. Twilight
+   - [x] Overwatch 2
+   - [] Battlefield 1 (Soon)
+   - [] Battlefield 4 (Soon)
+   - [] Temp Spoofer (Soon)
+   - [] UEFI Spoofer (Soon)
+   - [] COD MW3 (Soon)
+   - [] Valorant (Soon)
+     
+2. Twilight Freeware
+   - [] Battlefield 1
+   - [] RDR Online
+   - [] Outlast Trials
+  
+3. Reselling
+  - [] Twilight solutions (Soon) 
