@@ -33,17 +33,17 @@ The Site Support Arabic And English
 
 1. Twilight
    - [x] Overwatch 2
-   - [ ] Battlefield 1 (Soon)
-   - [ ] Battlefield 4 (Soon)
-   - [ ] Temp Spoofer (Soon)
-   - [ ] UEFI Spoofer (Soon)
-   - [ ] COD MW3 (Soon)
-   - [ ] Valorant (Soon)
+   - [x] Battlefield 1
+   - [x] Battlefield 4
+   - [x] Temp Spoofer
+   - [x] UEFI Spoofer
+   - [x] COD MW3
+   - [x] Valorant
      
 2. Twilight Freeware
-   - [ ] Battlefield 1
-   - [ ] RDR Online
-   - [ ] Outlast Trials
+   - [x] Battlefield 1
+   - [x] RDR Online
+   - [x] Outlast Trials
   
 4. Reselling
-   - [ ] Twilight solutions (Soon) 
+   - [x] Twilight solutions
