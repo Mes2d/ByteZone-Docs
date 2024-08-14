@@ -3,7 +3,7 @@
 
 ## About BzDocs
 
-Bzdocs is a site for documentation of our products Twighlight (OV,BF1,BF4,MW3) And Spoofer and etc...
+Bzdocs is a documentation website for our products, including information about the installation process, product details, a downloads section, and more.
 
 
 ## Pages
